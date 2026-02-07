@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>รายละเอียดคำสัญญา</h1>
+
+<div class="card">
+    <h2>{{ promise.detail }}</h2>
+    <p><strong>รหัสคำสัญญา:</strong> {{ promise.id }}</p>
+    <p><strong>นักการเมือง:</strong>
+        <a href="/politicians/{{ politician.id }}">{{ politician.name }}</a> ({{ politician.party }})
+    </p>
+    {% if campaign %}
+    <p><strong>การหาเสียง:</strong> {{ campaign.district }} (ปี {{ campaign.year }})</p>
+    {% endif %}
+    <p><strong>วันที่ประกาศ:</strong> {{ promise.announced_date }}</p>
+    <p><strong>สถานะ:</strong>
+        {% if promise.status == "ยังไม่เริ่ม" %}
+        <span class="status status-pending">{{ promise.status }}</span>
+        {% elif promise.status == "กำลังดำเนินการ" %}
+        <span class="status status-progress">{{ promise.status }}</span>
+        {% elif promise.status == "เงียบหาย" %}
+        <span class="status status-gone">{{ promise.status }}</span>
+        {% endif %}
+    </p>
+
+    {% if user.role == "admin" and promise.status != "เงียบหาย" %}
+    <a href="/promises/{{ promise.id }}/update" class="btn btn-primary">เพิ่มความคืบหน้า</a>
+    {% elif promise.status == "เงียบหาย" %}
+    <p style="color:#e74c3c;">คำสัญญานี้มีสถานะ "เงียบหาย" ไม่สามารถอัปเดตเพิ่มได้</p>
+    {% endif %}
+</div>
+
+<h2>ประวัติการอัปเดต</h2>
+{% if updates %}
+<div class="update-list">
+    {% for u in updates %}
+    <div class="update-item">
+        <p class="update-date">{{ u.update_date }}</p>
+        <p>{{ u.detail }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p style="color:#999;">ยังไม่มีการอัปเดต</p>
+{% endif %}
+
+<a href="/promises" class="back-link">กลับหน้ารวมคำสัญญา</a>
+{% endblock %}

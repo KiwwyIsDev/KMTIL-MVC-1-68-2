@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>รายชื่อนักการเมือง</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>รหัส</th>
+            <th>ชื่อ</th>
+            <th>พรรคการเมือง</th>
+            <th>ดูคำสัญญา</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in politicians %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.party }}</td>
+            <td><a href="/politicians/{{ p.id }}">ดูคำสัญญา</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "politician_id": "10000001",
+    "campaign_id": 1,
+    "detail": "แจกเงินดิจิทัล 10,000 บาท ให้ประชาชนทุกคน",
+    "announced_date": "2566-04-15",
+    "status": "เงียบหาย"
+  },
+  {
+    "id": 2,
+    "politician_id": "10000001",
+    "campaign_id": 1,
+    "detail": "ลดค่าไฟฟ้าเหลือหน่วยละ 3.50 บาท",
+    "announced_date": "2566-04-20",
+    "status": "กำลังดำเนินการ"
+  },
+  {
+    "id": 3,
+    "politician_id": "10000002",
+    "campaign_id": 2,
+    "detail": "สร้างรถไฟฟ้า 20 บาทตลอดสาย",
+    "announced_date": "2566-03-10",
+    "status": "กำลังดำเนินการ"
+  },
+  {
+    "id": 4,
+    "politician_id": "10000002",
+    "campaign_id": 2,
+    "detail": "ยกเลิกเกณฑ์ทหาร",
+    "announced_date": "2566-03-15",
+    "status": "ยังไม่เริ่ม"
+  },
+  {
+    "id": 5,
+    "politician_id": "10000003",
+    "campaign_id": 3,
+    "detail": "เพิ่มค่าแรงขั้นต่ำเป็น 600 บาท",
+    "announced_date": "2566-05-01",
+    "status": "กำลังดำเนินการ"
+  },
+  {
+    "id": 6,
+    "politician_id": "10000003",
+    "campaign_id": 3,
+    "detail": "ฟรี WiFi ทั่วประเทศ",
+    "announced_date": "2566-05-05",
+    "status": "เงียบหาย"
+  },
+  {
+    "id": 7,
+    "politician_id": "10000004",
+    "campaign_id": 1,
+    "detail": "แก้ปัญหาน้ำท่วมกรุงเทพภายใน 2 ปี",
+    "announced_date": "2566-02-20",
+    "status": "กำลังดำเนินการ"
+  },
+  {
+    "id": 8,
+    "politician_id": "10000004",
+    "campaign_id": 1,
+    "detail": "ลดราคาน้ำมัน 5 บาทต่อลิตร",
+    "announced_date": "2566-02-25",
+    "status": "เงียบหาย"
+  },
+  {
+    "id": 9,
+    "politician_id": "10000005",
+    "campaign_id": 5,
+    "detail": "เรียนฟรีถึงปริญญาตรี",
+    "announced_date": "2566-04-01",
+    "status": "ยังไม่เริ่ม"
+  },
+  {
+    "id": 10,
+    "politician_id": "10000005",
+    "campaign_id": 5,
+    "detail": "สร้างโรงพยาบาลใหม่ 100 แห่ง",
+    "announced_date": "2566-04-10",
+    "status": "กำลังดำเนินการ"
+  },
+  {
+    "id": 11,
+    "politician_id": "10000001",
+    "campaign_id": 4,
+    "detail": "กัญชาเสรีเพื่อการแพทย์",
+    "announced_date": "2566-04-25",
+    "status": "ยังไม่เริ่ม"
+  },
+  {
+    "id": 12,
+    "politician_id": "10000003",
+    "campaign_id": 3,
+    "detail": "แก้รัฐธรรมนูญภายใน 1 ปี",
+    "announced_date": "2566-05-10",
+    "status": "กำลังดำเนินการ"
+  }
+]

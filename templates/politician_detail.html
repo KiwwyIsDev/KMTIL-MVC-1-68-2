@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ politician.name }}</h1>
+<p><strong>รหัส:</strong> {{ politician.id }} | <strong>พรรค:</strong> {{ politician.party }}</p>
+
+<h2>คำสัญญาทั้งหมด</h2>
+{% if promises %}
+<table>
+    <thead>
+        <tr>
+            <th>รหัส</th>
+            <th>คำสัญญา</th>
+            <th>วันที่ประกาศ</th>
+            <th>สถานะ</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in promises %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td><a href="/promises/{{ p.id }}">{{ p.detail }}</a></td>
+            <td>{{ p.announced_date }}</td>
+            <td>
+                {% if p.status == "ยังไม่เริ่ม" %}
+                <span class="status status-pending">{{ p.status }}</span>
+                {% elif p.status == "กำลังดำเนินการ" %}
+                <span class="status status-progress">{{ p.status }}</span>
+                {% elif p.status == "เงียบหาย" %}
+                <span class="status status-gone">{{ p.status }}</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p style="color:#999;">ยังไม่มีคำสัญญา</p>
+{% endif %}
+
+<a href="/politicians" class="back-link">กลับหน้ารายชื่อนักการเมือง</a>
+{% endblock %}

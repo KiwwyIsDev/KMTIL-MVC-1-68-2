@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login-box">
+    <h2>เข้าสู่ระบบ</h2>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post" action="/login">
+        <input type="text" name="username" placeholder="ชื่อผู้ใช้" required>
+        <input type="password" name="password" placeholder="รหัสผ่าน" required>
+        <button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
+    </form>
+    <p style="text-align:center; color:#999; margin-top:15px; font-size:0.85em;">
+        admin / admin123 (ผู้ดูแล) | user / user123 (ผู้ใช้ทั่วไป)
+    </p>
+</div>
+{% endblock %}

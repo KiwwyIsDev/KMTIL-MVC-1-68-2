@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>อัปเดตความคืบหน้า</h1>
+
+<div class="card">
+    <p><strong>คำสัญญา:</strong> {{ promise.detail }}</p>
+    <p><strong>สถานะปัจจุบัน:</strong> {{ promise.status }}</p>
+
+    <form method="post" action="/promises/{{ promise.id }}/update">
+        <div class="form-group">
+            <label>รายละเอียดความคืบหน้า:</label>
+            <textarea name="detail" placeholder="กรอกรายละเอียดความคืบหน้า..." required></textarea>
+        </div>
+        <div class="form-group">
+            <label>เปลี่ยนสถานะเป็น:</label>
+            <select name="new_status">
+                <option value="ยังไม่เริ่ม" {% if promise.status == "ยังไม่เริ่ม" %}selected{% endif %}>ยังไม่เริ่ม</option>
+                <option value="กำลังดำเนินการ" {% if promise.status == "กำลังดำเนินการ" %}selected{% endif %}>กำลังดำเนินการ</option>
+                <option value="เงียบหาย">เงียบหาย</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">บันทึก</button>
+    </form>
+</div>
+
+<a href="/promises/{{ promise.id }}" class="back-link">กลับหน้ารายละเอียด</a>
+{% endblock %}

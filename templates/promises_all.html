@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>คำสัญญาทั้งหมด</h1>
+<p>แสดงคำสัญญาทั้งหมดเรียงตามวันที่ประกาศ</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>รหัส</th>
+            <th>คำสัญญา</th>
+            <th>นักการเมือง</th>
+            <th>พรรค</th>
+            <th>การหาเสียง</th>
+            <th>วันที่ประกาศ</th>
+            <th>สถานะ</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in promises %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td><a href="/promises/{{ p.id }}">{{ p.detail }}</a></td>
+            <td>
+                {% if politicians.get(p.politician_id) %}
+                <a href="/politicians/{{ p.politician_id }}">{{ politicians[p.politician_id].name }}</a>
+                {% endif %}
+            </td>
+            <td>
+                {% if politicians.get(p.politician_id) %}
+                {{ politicians[p.politician_id].party }}
+                {% endif %}
+            </td>
+            <td>
+                {% if campaigns.get(p.campaign_id) %}
+                {{ campaigns[p.campaign_id].district }} ({{ campaigns[p.campaign_id].year }})
+                {% endif %}
+            </td>
+            <td>{{ p.announced_date }}</td>
+            <td>
+                {% if p.status == "ยังไม่เริ่ม" %}
+                <span class="status status-pending">{{ p.status }}</span>
+                {% elif p.status == "กำลังดำเนินการ" %}
+                <span class="status status-progress">{{ p.status }}</span>
+                {% elif p.status == "เงียบหาย" %}
+                <span class="status status-gone">{{ p.status }}</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
